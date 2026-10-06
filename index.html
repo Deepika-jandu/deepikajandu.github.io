@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepika Jandu | Data Scientist & ML Engineer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons for modern tech iconography -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            },
+            accent: {
+              indigo: '#6366f1',
+              violet: '#8b5cf6',
+              cyan: '#06b6d4',
+            },
+            slateBg: '#090d16',
+            cardBg: '#111827',
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Glow Utilities */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.15);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-border {
+      position: relative;
+    }
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(99, 102, 241, 0.2), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0a0e17] text-slate-200 font-sans selection:bg-indigo-500 selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Ambient background glow elements -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-cyan-600/10 rounded-full blur-[140px]"></div>
+    <div class="absolute -bottom-40 left-1/3 w-[32rem] h-[32rem] bg-purple-600/15 rounded-full blur-[130px]"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+          DJ
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">Deepika Jandu</span>
+          <span class="hidden sm:inline-block text-xs text-slate-400 ml-2 font-mono">IIT Bombay</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#certifications" class="hover:text-cyan-400 transition-colors">Certifications</a>
+      </nav>
+
+      <!-- Action Button & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/25 transition-all">
+          <i class="ph ph-chat-teardrop-text text-base"></i>
+          <span>Let's Connect</span>
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800" aria-label="Toggle menu">
+          <i class="ph ph-list text-2xl" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900/95 px-6 py-4 space-y-3">
+      <a href="#about" class="block py-1.5 text-slate-300 hover:text-cyan-400 mobile-nav-link">About</a>
+      <a href="#skills" class="block py-1.5 text-slate-300 hover:text-cyan-400 mobile-nav-link">Skills</a>
+      <a href="#experience" class="block py-1.5 text-slate-300 hover:text-cyan-400 mobile-nav-link">Experience</a>
+      <a href="#projects" class="block py-1.5 text-slate-300 hover:text-cyan-400 mobile-nav-link">Projects</a>
+      <a href="#certifications" class="block py-1.5 text-slate-300 hover:text-cyan-400 mobile-nav-link">Certifications</a>
+      <a href="#contact" class="block py-1.5 text-cyan-400 font-semibold mobile-nav-link">Get in Touch</a>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section id="hero" class="pt-16 pb-20 sm:pt-24 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero Left Info -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-slate-800/90 border border-slate-700 text-cyan-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Open for Data Science & ML Roles</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Hi, I'm <span class="gradient-text">Deepika Jandu</span>
+          </h1>
+
+          <p class="text-xl sm:text-2xl text-slate-300 font-medium">
+            Data Scientist & Machine Learning Engineer
+            <span class="block text-slate-400 text-lg mt-1 font-normal">
+              B.Tech, <span class="text-white font-medium">Indian Institute of Technology (IIT) Bombay</span>
+            </span>
+          </p>
+
+          <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Transforming complex, unstructured datasets into production-grade AI solutions. Specializing in 
+            <span class="text-slate-200 font-medium">Predictive Modeling (XGBoost)</span>, 
+            <span class="text-slate-200 font-medium">LLM Extraction & RAG Pipelines</span>, and 
+            <span class="text-slate-200 font-medium">Large-scale Financial & Healthcare Analytics</span>.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/20 hover:opacity-95 transition-all flex items-center gap-2">
+              <i class="ph ph-folder-open text-lg"></i>
+              <span>Explore Projects</span>
+            </a>
+            <a href="#experience" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
+              <i class="ph ph-briefcase text-lg"></i>
+              <span>Work Experience</span>
+            </a>
+            <button onclick="copyEmailToClipboard()" class="px-5 py-3 rounded-xl glass-card hover:border-cyan-500/50 text-slate-300 text-sm font-medium transition-all flex items-center gap-2" title="Click to copy email">
+              <i class="ph ph-copy text-lg text-cyan-400"></i>
+              <span id="copyEmailText">deepikajandu2608@gmail.com</span>
+            </button>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="flex items-center gap-4 text-slate-400 text-xl pt-1">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800" title="LinkedIn">
+              <i class="ph ph-linkedin-logo"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800" title="GitHub">
+              <i class="ph ph-github-logo"></i>
+            </a>
+            <a href="tel:+918160221956" class="hover:text-cyan-400 transition-colors p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800" title="Phone">
+              <i class="ph ph-phone-call"></i>
+            </a>
+            <a href="mailto:deepikajandu2608@gmail.com" class="hover:text-cyan-400 transition-colors p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800" title="Email">
+              <i class="ph ph-envelope-simple"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Interactive Impact Metric Cards -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          <!-- Stat 1 -->
+          <div class="glass-card gradient-border p-5 rounded-2xl flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-2xl">
+              <i class="ph ph-heartbeat"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">40,000+</div>
+              <div class="text-sm font-semibold text-slate-300">Healthcare Records Analyzed</div>
+              <p class="text-xs text-slate-400 mt-1">LLM-driven failure pattern & root-cause extraction reducing turnaround from 3 days to minutes at Axionray.</p>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="glass-card gradient-border p-5 rounded-2xl flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-2xl">
+              <i class="ph ph-bank"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">3,000,000+</div>
+              <div class="text-sm font-semibold text-slate-300">Bank Transactions Processed</div>
+              <p class="text-xs text-slate-400 mt-1">NLP categorization with a +3% performance lift over regex benchmarks for credit risk at Olyv.</p>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="glass-card gradient-border p-5 rounded-2xl flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 text-2xl">
+              <i class="ph ph-cpu"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">92% Accuracy</div>
+              <div class="text-sm font-semibold text-slate-300">XGBoost Predictive Maintenance</div>
+              <p class="text-xs text-slate-400 mt-1">Built at NCAIR Lab, IIT Bombay for IoT smart lift anomaly detection, cutting manual inspections by 40%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-16 border-t border-slate-800/80 bg-slate-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Background & Philosophy</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Bridging Statistical Rigor with Scalable AI Systems</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-4 border border-indigo-500/20">
+              <i class="ph ph-graduation-cap"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">IIT Bombay Alum</h3>
+            <p class="text-sm text-cyan-300 font-mono mt-0.5">Bachelor of Technology</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Trained in core mathematical foundations, scientific computing, algorithmic problem solving, and interdisciplinary research at India's premier engineering institute.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-4 border border-cyan-500/20">
+              <i class="ph ph-tree-structure"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">GenAI & Information Retrieval</h3>
+            <p class="text-sm text-cyan-300 font-mono mt-0.5">LLMs, Embeddings & RAG</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Specialist in building domain-specific retrieval pipelines combining lexical search, Sentence Transformers, vector stores (FAISS, ChromaDB), and LangChain workflows.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-4 border border-purple-500/20">
+              <i class="ph ph-chart-line-up"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Production Business Impact</h3>
+            <p class="text-sm text-cyan-300 font-mono mt-0.5">Fintech & MedTech Operations</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Proven track record of turning multi-million transaction streams and healthcare complaints into quantitative risk indicators, automated taxonomies, and high-ROI dashboards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Toolkit</span>
+            <h2 class="text-3xl font-bold text-white mt-1">Technical Skills Matrix</h2>
+            <p class="text-slate-400 text-sm mt-2">Filter skills based on your team's stack requirements</p>
+          </div>
+          <!-- Skill Filter Buttons -->
+          <div class="flex flex-wrap gap-2" id="skill-filters">
+            <button class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white transition-all" data-filter="all">All Skills</button>
+            <button class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-filter="genai">GenAI & LLM</button>
+            <button class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-filter="ml">Machine Learning</button>
+            <button class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-filter="analytics">Data & Analytics</button>
+            <button class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-filter="engineering">Languages & Tools</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="skills-container">
+          
+          <!-- Category 1: Languages & Engineering -->
+          <div class="skill-card glass-card p-5 rounded-2xl space-y-4" data-category="engineering">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 text-xl border border-emerald-500/20">
+                <i class="ph ph-code"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Languages & Backend</h4>
+                <p class="text-xs text-slate-400 font-mono">Foundations</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Python</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">SQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">FastAPI</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">REST APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Git / GitHub</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">SQLite</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Machine Learning -->
+          <div class="skill-card glass-card p-5 rounded-2xl space-y-4" data-category="ml">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400 text-xl border border-indigo-500/20">
+                <i class="ph ph-brain"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Machine Learning</h4>
+                <p class="text-xs text-slate-400 font-mono">Statistical & Predictive</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-indigo-300 border border-indigo-500/30">XGBoost</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Random Forest</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">SVM</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">K-Means</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-indigo-300 border border-indigo-500/30">Anomaly Detection</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Time Series</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Feature Eng.</span>
+            </div>
+          </div>
+
+          <!-- Category 3: GenAI & Deep Learning -->
+          <div class="skill-card glass-card p-5 rounded-2xl space-y-4" data-category="genai">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 text-xl border border-cyan-500/20">
+                <i class="ph ph-sparkle"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">GenAI & Deep Learning</h4>
+                <p class="text-xs text-slate-400 font-mono">Modern NLP / LLMs</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-cyan-300 border border-cyan-500/30">RAG Pipelines</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-cyan-300 border border-cyan-500/30">LangChain</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-cyan-300 border border-cyan-500/30">LangGraph</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Transformers</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">ChromaDB / FAISS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Hugging Face</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">PyTorch</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Analytics & Visuals -->
+          <div class="skill-card glass-card p-5 rounded-2xl space-y-4" data-category="analytics">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400 text-xl border border-amber-500/20">
+                <i class="ph ph-chart-polar"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Analytics & BI</h4>
+                <p class="text-xs text-slate-400 font-mono">Business Decisioning</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-amber-300 border border-amber-500/30">Google BigQuery</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Pandas / NumPy</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Power BI</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Tableau</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Plotly & Seaborn</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700">Advanced Excel</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-20 border-t border-slate-800/80 bg-slate-900/20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14">
+          <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Career Trajectory</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Professional Experience</h2>
+          <p class="text-slate-400 text-sm mt-2">Delivering production-level analytics, LLM automation, and predictive maintenance</p>
+        </div>
+
+        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+          
+          <!-- Experience 1: Axionray -->
+          <div class="relative pl-8 group">
+            <!-- Timeline dot -->
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-[#0a0e17] group-hover:scale-125 transition-transform"></div>
+            
+            <!-- Date for desktop -->
+            <div class="md:absolute md:-left-36 md:top-1 text-xs font-mono text-cyan-400 uppercase tracking-wider">
+              Nov 2025 - Present
+              <div class="text-[11px] text-slate-500 font-sans">Bangalore, India</div>
+            </div>
+
+            <div class="glass-card gradient-border p-6 rounded-2xl glass-card-hover">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-bold text-white">Data Analyst</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                  Axionray
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono mb-4">Domain: Healthcare Complaint Intelligence & Generative AI</p>
+
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-cyan-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Analyzed <strong class="text-white">40K+ healthcare complaint records</strong> across 9 brands using Python and SQL to identify failure patterns, root causes, and recurring component issues.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-cyan-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Developed <strong class="text-white">LLM-powered extraction workflows</strong> to convert unstructured customer complaint logs into structured failure modes, root causes, and technical attributes for downstream modeling.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-cyan-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Engineered reusable AI workflows for IFU (Instructions For Use) validation, market-share analysis, and taxonomy standardization, reducing manual turnaround time from <strong class="text-white">1–3 days to 2–20 minutes</strong>.</span>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Python</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">LLM Prompt Pipelines</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">SQL</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Taxonomy Standardization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 2: Olyv (Smart Coin) -->
+          <div class="relative pl-8 group">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-[#0a0e17] group-hover:scale-125 transition-transform"></div>
+            
+            <div class="md:absolute md:-left-36 md:top-1 text-xs font-mono text-indigo-400 uppercase tracking-wider">
+              May 2025 - Sep 2025
+              <div class="text-[11px] text-slate-500 font-sans">Bangalore, India</div>
+            </div>
+
+            <div class="glass-card gradient-border p-6 rounded-2xl glass-card-hover">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-bold text-white">Data Science Intern</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+                  Olyv (Smart Coin)
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono mb-4">Domain: Fintech & Credit Risk Assessment NLP</p>
+
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-indigo-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Processed over <strong class="text-white">3 Million bank transactions</strong> to compute similarity indexes and classify entries into merchant categories, achieving a <strong class="text-white">+3% performance lift</strong> over regex vendor benchmarks.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-indigo-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Engineered NLP pipelines leveraging pre-trained LLMs on real-time financial statements and SMS data feeds to strengthen internal credit risk underwriting frameworks.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-indigo-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Executed revenue growth and cohort analytics using <strong class="text-white">Google BigQuery</strong> to power executive decision-making.</span>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">NLP</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Google BigQuery</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Similarity Algorithms</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Risk Scoring</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3: NCAIR Lab, IIT Bombay -->
+          <div class="relative pl-8 group">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-[#0a0e17] group-hover:scale-125 transition-transform"></div>
+            
+            <div class="md:absolute md:-left-36 md:top-1 text-xs font-mono text-purple-400 uppercase tracking-wider">
+              Jun 2024 - Jul 2024
+              <div class="text-[11px] text-slate-500 font-sans">Mumbai, India</div>
+            </div>
+
+            <div class="glass-card gradient-border p-6 rounded-2xl glass-card-hover">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-bold text-white">Research Intern – Smart Lift Monitor</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                  NCAIR Lab, IIT Bombay
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono mb-4">Domain: Industrial IoT & Predictive Maintenance ML</p>
+
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-purple-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Deployed an IoT-based lift telemetry monitoring system across campus facilities, reducing manual inspection overhead by <strong class="text-white">40%</strong>.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-purple-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Developed and tuned an <strong class="text-white">XGBoost model</strong> for predictive maintenance, achieving <strong class="text-white">92% fault detection accuracy</strong> on vibrational & cycle telemetry.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-purple-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Architected a lightweight client-server cloud interface using PHP for real-time telemetry streaming and alerts.</span>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">XGBoost</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Telemetry Data</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Fault Prediction</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">PHP Cloud Backend</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 4: Aadeshwar Technoplast -->
+          <div class="relative pl-8 group">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-500 ring-4 ring-[#0a0e17] group-hover:scale-125 transition-transform"></div>
+            
+            <div class="md:absolute md:-left-36 md:top-1 text-xs font-mono text-slate-400 uppercase tracking-wider">
+              Jan 2024 - Feb 2024
+              <div class="text-[11px] text-slate-500 font-sans">Mumbai, India</div>
+            </div>
+
+            <div class="glass-card gradient-border p-6 rounded-2xl glass-card-hover">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-bold text-white">Data Analyst Intern</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                  Aadeshwar Technoplast Pvt Ltd
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono mb-4">Domain: Customer Segmentation & Retention Analytics</p>
+
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-slate-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Segmented <strong class="text-white">0.5M+ purchasing records</strong> into 5 granular customer profiles, uncovering an unmonitored <strong class="text-white">30% retention loss</strong> associated with shifts toward intraday orders.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="ph ph-check-circle text-slate-400 text-base mt-0.5 shrink-0"></i>
+                  <span>Collaborated with operational leadership to deploy CRM segmentation strategies designed to re-engage declining order channels.</span>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Customer Clustering</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Cohort Retention</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">CRM Strategy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Portfolio Work</span>
+            <h2 class="text-3xl font-bold text-white mt-1">Featured & Interview-Ready ML Projects</h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+              A curated blend of Deepika's core resume work and standard, high-impact ML/GenAI projects with open GitHub templates and interview talking points.
+            </p>
+          </div>
+          <!-- Project Category filter -->
+          <div class="flex flex-wrap gap-2" id="project-filters">
+            <button class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-cyan-600 text-white transition-all" data-proj="all">All (4)</button>
+            <button class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-proj="genai">GenAI & Search</button>
+            <button class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all" data-proj="classical-ml">Tabular & Predictive ML</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+          
+          <!-- PROJECT 1: From Resume (Intelligent Data Catalogue Search Engine) -->
+          <div class="proj-card glass-card gradient-border rounded-2xl p-6 flex flex-col justify-between glass-card-hover" data-tag="genai">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  Featured Resume Project
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Hybrid IR System</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Intelligent Data Catalogue Hybrid Search Engine</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                An enterprise-ready hybrid retrieval system marrying exact token-boundary lexical search with 384-dimensional dense Sentence Transformer embeddings for data assets.
+              </p>
+
+              <!-- Technical Highlights -->
+              <div class="bg-slate-900/80 rounded-xl p-3.5 border border-slate-800 space-y-2 mb-4">
+                <div class="text-xs font-semibold text-cyan-300 uppercase tracking-wider font-mono">Key Architectural Decisions</div>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                  <li>Normalized SQLite schema separating hierarchical relationships into relational edge tables.</li>
+                  <li>Dynamic <code class="text-indigo-300 font-mono">k-expansion</code> and cosine similarity thresholding to eliminate false positives in entity clusters.</li>
+                  <li>Staged transactional builds to guarantee atomic zero-downtime index updates.</li>
+                </ul>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Sentence Transformers</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">SQLite (Edge Tables)</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Hybrid Lexical + Vector</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">FastAPI</span>
+              </div>
+            </div>
+
+            <!-- Footer Action & Interview Helper -->
+            <div class="pt-4 border-t border-slate-800/90 flex items-center justify-between">
+              <button onclick="openInterviewModal('project1')" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+                <i class="ph ph-chat-centered-dots text-base"></i>
+                <span>Interview Talking Points (60s Pitch)</span>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm" title="View Source Template">
+                <i class="ph ph-arrow-square-out text-base"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: Curated ML (Customer Churn & Retention Predictor with SHAP) -->
+          <div class="proj-card glass-card gradient-border rounded-2xl p-6 flex flex-col justify-between glass-card-hover" data-tag="classical-ml">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+                  Curated ML Portfolio
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Explainable AI (XAI)</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Customer Churn & Retention Predictor with SHAP</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                End-to-end customer attrition pipeline on 100k+ accounts using XGBoost and LightGBM with interpretability models (SHAP & LIME) to advise retention teams.
+              </p>
+
+              <!-- Technical Highlights -->
+              <div class="bg-slate-900/80 rounded-xl p-3.5 border border-slate-800 space-y-2 mb-4">
+                <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wider font-mono">Why Recruiters Love This</div>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                  <li>Directly mirrors Deepika's retention loss analysis experience at Aadeshwar Technoplast.</li>
+                  <li>Addresses business ROI: false negatives (missed churners) cost 5x more than proactive coupons.</li>
+                  <li>Local + Global SHAP value explainability exported to a Streamlit executive dashboard.</li>
+                </ul>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">XGBoost / LightGBM</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">SHAP / LIME</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Cost-sensitive Learning</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Streamlit</span>
+              </div>
+            </div>
+
+            <!-- Footer Action & Interview Helper -->
+            <div class="pt-4 border-t border-slate-800/90 flex items-center justify-between">
+              <button onclick="openInterviewModal('project2')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5">
+                <i class="ph ph-chat-centered-dots text-base"></i>
+                <span>Interview Talking Points (60s Pitch)</span>
+              </button>
+              <a href="https://github.com/topics/customer-churn-prediction" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm" title="Explore GitHub Open Source Guide">
+                <i class="ph ph-github-logo text-base"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Curated GenAI (Financial & Regulatory RAG Assistant) -->
+          <div class="proj-card glass-card gradient-border rounded-2xl p-6 flex flex-col justify-between glass-card-hover" data-tag="genai">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                  GenAI Production Architecture
+                </span>
+                <span class="text-xs text-slate-400 font-mono">LangChain + ChromaDB</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Financial 10-K & Regulatory RAG Assistant</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Self-correcting RAG pipeline querying multi-page financial disclosures with exact citation tracking, chunk re-ranking (FlashRank), and LangSmith observability.
+              </p>
+
+              <!-- Technical Highlights -->
+              <div class="bg-slate-900/80 rounded-xl p-3.5 border border-slate-800 space-y-2 mb-4">
+                <div class="text-xs font-semibold text-cyan-300 uppercase tracking-wider font-mono">Why Recruiters Love This</div>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                  <li>Pairs naturally with Deepika's Olyv financial statement NLP & LangSmith certifications.</li>
+                  <li>Implements metadata filtering across quarters and cross-encoder re-ranking for accuracy.</li>
+                  <li>Hallucination evaluation guardrail using G-Eval metrics to reject ungrounded responses.</li>
+                </ul>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">LangChain / LangGraph</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">ChromaDB / FAISS</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">LangSmith Tracing</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Cross-Encoder Re-ranker</span>
+              </div>
+            </div>
+
+            <!-- Footer Action & Interview Helper -->
+            <div class="pt-4 border-t border-slate-800/90 flex items-center justify-between">
+              <button onclick="openInterviewModal('project3')" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+                <i class="ph ph-chat-centered-dots text-base"></i>
+                <span>Interview Talking Points (60s Pitch)</span>
+              </button>
+              <a href="https://github.com/topics/rag-system" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm" title="Explore GitHub Open Source Guide">
+                <i class="ph ph-github-logo text-base"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- PROJECT 4: Curated ML (Credit Card Anomaly & Fraud Detection Engine) -->
+          <div class="proj-card glass-card gradient-border rounded-2xl p-6 flex flex-col justify-between glass-card-hover" data-tag="classical-ml">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                  Curated ML Portfolio
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Imbalanced Learning</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">High-Throughput Fraud Anomaly Detection</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Real-time transaction stream anomaly detection tackling extreme class imbalance (&lt;0.2% fraud cases) using Isolation Forests, Autoencoders, and calibrated XGBoost.
+              </p>
+
+              <!-- Technical Highlights -->
+              <div class="bg-slate-900/80 rounded-xl p-3.5 border border-slate-800 space-y-2 mb-4">
+                <div class="text-xs font-semibold text-purple-300 uppercase tracking-wider font-mono">Why Recruiters Love This</div>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                  <li>Proves deep expertise in PR-AUC optimization over misleading raw accuracy scores.</li>
+                  <li>Hybrid setup: unsupervised anomaly flags for novel frauds + supervised scoring for known vectors.</li>
+                  <li>Latency-sensitive inference pipeline containerized with FastAPI ready for low-latency scoring.</li>
+                </ul>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">Isolation Forest</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">SMOTE / BorderlineSMOTE</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">PR-AUC Optimization</span>
+                <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">FastAPI</span>
+              </div>
+            </div>
+
+            <!-- Footer Action & Interview Helper -->
+            <div class="pt-4 border-t border-slate-800/90 flex items-center justify-between">
+              <button onclick="openInterviewModal('project4')" class="text-xs font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1.5">
+                <i class="ph ph-chat-centered-dots text-base"></i>
+                <span>Interview Talking Points (60s Pitch)</span>
+              </button>
+              <a href="https://github.com/topics/fraud-detection" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm" title="Explore GitHub Open Source Guide">
+                <i class="ph ph-github-logo text-base"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="py-20 border-t border-slate-800/80 bg-slate-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Specialized Knowledge</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Certifications & Advanced Training</h2>
+          <p class="text-slate-400 text-sm mt-2">Deepening expertise in Transformers, Vector Databases, and Agentic LLM systems</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-seal-check text-cyan-400 text-2xl"></i>
+              <span class="text-xs font-mono text-cyan-400">Anthropic Skills</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Claude Code in Action</h4>
+            <p class="text-xs text-slate-400 mt-2">Agentic workflow construction, code refactoring loops, and system-level prompt engineering.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-database text-indigo-400 text-2xl"></i>
+              <span class="text-xs font-mono text-indigo-400">DeepLearning.AI</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Vector Databases & Search</h4>
+            <p class="text-xs text-slate-400 mt-2">HNSW indexing, distance metrics (Cosine vs L2), payload filtering, and distributed indexing.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-eye text-purple-400 text-2xl"></i>
+              <span class="text-xs font-mono text-purple-400">DeepLearning.AI</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Attention in Transformers</h4>
+            <p class="text-xs text-slate-400 mt-2">Scaled dot-product mechanics, multi-head attention matrix projections, and sequence-to-sequence nuances.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-graph text-emerald-400 text-2xl"></i>
+              <span class="text-xs font-mono text-emerald-400">DeepLearning.AI</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Embedding Models & Text Embeddings</h4>
+            <p class="text-xs text-slate-400 mt-2">Representation learning, semantic clustering, contrastive loss, and fine-tuning domain encoders.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-gauge text-cyan-400 text-2xl"></i>
+              <span class="text-xs font-mono text-cyan-400">LangChain Academy</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Introduction to LangSmith</h4>
+            <p class="text-xs text-slate-400 mt-2">End-to-end LLM observability, latency tracking, unit-testing evaluation datasets, and run tracing.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ph ph-certificate text-amber-400 text-2xl"></i>
+              <span class="text-xs font-mono text-amber-400">IIT Bombay</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Advanced Data Science & Systems</h4>
+            <p class="text-xs text-slate-400 mt-2">Applied research in IoT sensor feeds, real-time client-server analytics, and embedded ML modeling.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 border-t border-slate-800/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-card gradient-border rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+          
+          <div class="max-w-2xl mx-auto space-y-4">
+            <span class="text-xs font-mono font-semibold tracking-wider uppercase text-cyan-400">Get In Touch</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Scalable ML Systems Together</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Whether you are hiring for Data Scientist, Machine Learning Engineer, or GenAI roles, or want to discuss RAG pipelines and telemetry analytics, feel free to drop a message.
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+              <a href="mailto:deepikajandu2608@gmail.com" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/20 hover:opacity-95 transition-all flex items-center gap-2">
+                <i class="ph ph-envelope-simple text-lg"></i>
+                <span>Send Email</span>
+              </a>
+              <button onclick="copyContactPhone()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="ph ph-phone text-lg text-cyan-400"></i>
+                <span id="copyPhoneBtn">+91-8160221956</span>
+              </button>
+            </div>
+
+            <!-- Toast notification container -->
+            <div id="toast" class="hidden mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-mono">
+              <i class="ph ph-check text-base"></i>
+              <span id="toast-message">Copied to clipboard!</span>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="pt-8 border-t border-slate-800/80 flex justify-center gap-6 text-sm text-slate-400 font-medium">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                <i class="ph ph-linkedin-logo text-lg"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                <i class="ph ph-github-logo text-lg"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="tel:+918160221956" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                <i class="ph ph-phone text-lg"></i>
+                <span>Phone</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>Deepika Jandu • Data Scientist Portfolio</div>
+      <div>Engineered with clean standards & IIT Bombay academic rigor</div>
+      <div>Bangalore / Mumbai, India</div>
+    </div>
+  </footer>
+
+  <!-- Modal for Interview Talking Points (60-second interview elevator pitches) -->
+  <div id="interview-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass-card border border-slate-700 bg-slate-900 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-5 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 uppercase font-bold" id="modal-eyebrow">Interview Cheat Sheet</span>
+          <h3 class="text-xl font-bold text-white mt-1" id="modal-title">Project Title</h3>
+        </div>
+        <button onclick="closeInterviewModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i class="ph ph-x text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Quick 60s pitch banner -->
+      <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 text-sm">
+        <div class="font-semibold text-cyan-300 font-mono text-xs uppercase mb-1">How to Pitch This in 60 Seconds</div>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed" id="modal-pitch">Pitch goes here...</p>
+      </div>
+
+      <!-- Technical Architecture breakdown -->
+      <div>
+        <h4 class="text-sm font-semibold text-white font-mono uppercase mb-2">Technical Deep Dive to Explain to an ML Lead</h4>
+        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside bg-slate-950/60 p-4 rounded-xl border border-slate-800" id="modal-deepdive">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <!-- Standard GitHub Repo Reference for Practice -->
+      <div class="p-3 rounded-lg bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between text-xs">
+        <span class="text-slate-300">Ready to inspect or reproduce this codebase?</span>
+        <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="font-mono text-cyan-400 hover:underline flex items-center gap-1">
+          <span>GitHub Starter Repo</span>
+          <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="text-right pt-2">
+        <button onclick="closeInterviewModal()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Copy email helper using document.execCommand for iframe safety
+    function copyEmailToClipboard() {
+      const email = "deepikajandu2608@gmail.com";
+      const tempInput = document.createElement("input");
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      showToast("Email address copied to clipboard!");
+      const label = document.getElementById("copyEmailText");
+      if (label) {
+        const oldText = label.innerText;
+        label.innerText = "Copied to clipboard!";
+        setTimeout(() => { label.innerText = oldText; }, 2000);
+      }
+    }
+
+    // Copy phone number helper
+    function copyContactPhone() {
+      const phone = "+918160221956";
+      const tempInput = document.createElement("input");
+      tempInput.value = phone;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      showToast("Phone number copied to clipboard!");
+      const btn = document.getElementById("copyPhoneBtn");
+      if (btn) {
+        const old = btn.innerText;
+        btn.innerText = "Copied!";
+        setTimeout(() => { btn.innerText = old; }, 2000);
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      const text = document.getElementById("toast-message");
+      if (toast && text) {
+        text.innerText = msg;
+        toast.classList.remove("hidden");
+        setTimeout(() => {
+          toast.classList.add("hidden");
+        }, 3000);
+      }
+    }
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.querySelectorAll(".mobile-nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    }
+
+    // Skills Filter Logic
+    const skillFilters = document.querySelectorAll(".skill-filter-btn");
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    skillFilters.forEach(btn => {
+      btn.addEventListener("click", () => {
+        skillFilters.forEach(b => {
+          b.classList.remove("bg-indigo-600", "text-white");
+          b.classList.add("bg-slate-800", "text-slate-300");
+        });
+        btn.classList.add("bg-indigo-600", "text-white");
+        btn.classList.remove("bg-slate-800", "text-slate-300");
+
+        const targetCategory = btn.getAttribute("data-filter");
+        skillCards.forEach(card => {
+          if (targetCategory === "all" || card.getAttribute("data-category") === targetCategory) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Project Filter Logic
+    const projFilters = document.querySelectorAll(".proj-filter-btn");
+    const projCards = document.querySelectorAll(".proj-card");
+
+    projFilters.forEach(btn => {
+      btn.addEventListener("click", () => {
+        projFilters.forEach(b => {
+          b.classList.remove("bg-cyan-600", "text-white");
+          b.classList.add("bg-slate-800", "text-slate-300");
+        });
+        btn.classList.add("bg-cyan-600", "text-white");
+        btn.classList.remove("bg-slate-800", "text-slate-300");
+
+        const targetTag = btn.getAttribute("data-proj");
+        projCards.forEach(card => {
+          if (targetTag === "all" || card.getAttribute("data-tag") === targetTag) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Interview Modal Data Store
+    const interviewData = {
+      project1: {
+        eyebrow: "Deepika's Resume Project • Retrieval Engine",
+        title: "Intelligent Data Catalogue Hybrid Search Engine",
+        pitch: "In enterprise data discovery, exact identifier search fails on colloquial queries, while pure semantic search hallucinates metadata. I engineered an end-to-end hybrid engine combining SQLite token-boundary lexical search with 384-dimensional Sentence Transformer embeddings. I solved the multi-entity explosion problem by implementing dynamic k-expansion and transactional atomic rebuilding for zero-downtime indexing.",
+        deepdive: [
+          "Lexical vs Dense: Combined BM25/SQLite FTS tokens for code/table IDs with MiniLM-L6-v2 embeddings for conceptual synonyms.",
+          "Dynamic K-Expansion: Expanded the candidate retrieval pool dynamically when cluster variance was high to guarantee high recall.",
+          "Schema Normalization: Decoupled parent-child hierarchies into dedicated relational edge tables to ensure query speeds under 50ms.",
+          "Deterministic Tie-breaking: Solved ranking volatility by applying secondary lexicographical and frequency weights to identical similarity scores."
+        ],
+        repo: "https://github.com/topics/hybrid-search"
+      },
+      project2: {
+        eyebrow: "Recommended Interview Project • Predictive ML",
+        title: "Customer Churn Predictor with Explainable AI (SHAP)",
+        pitch: "Predicting customer churn is easy; convincing business executives to act on the predictions requires explainability. Building on my customer retention segmentation experience at Aadeshwar Technoplast, this project implements a production XGBoost/LightGBM pipeline. Instead of a black-box probability, it outputs personalized feature attributions via TreeSHAP so retention teams know whether to offer discounts or fix customer support friction.",
+        deepdive: [
+          "Cost-Sensitive Loss: Weighted the positive churn class by 4x to reflect business reality where false negatives are significantly more expensive than false positives.",
+          "Handling Data Leakage: Strictly isolated feature scalers, target encoders, and SMOTE resamplers within stratified cross-validation folds.",
+          "Model Explainability: Produced global feature ranking plots and local waterfall plots using TreeSHAP to clarify why individual users are flagged.",
+          "Deployment: Wrapped with FastAPI and an interactive Streamlit UI where account managers adjust customer attributes to test retention interventions."
+        ],
+        repo: "https://github.com/topics/customer-churn-prediction"
+      },
+      project3: {
+        eyebrow: "Recommended Interview Project • GenAI & LLMs",
+        title: "Financial 10-K & Regulatory RAG Assistant",
+        pitch: "This project directly builds upon my work at Olyv and Axionray extracting insights from financial statements and complex documents. It solves the biggest issue in enterprise LLM adoption: hallucinations. Built with LangChain, ChromaDB, and LangSmith, it implements semantic chunking, cross-encoder re-ranking, and strict ground truth citation verification before presenting answers to analysts.",
+        deepdive: [
+          "Chunking Strategy: Leveraged document-aware header splitters to avoid chopping financial balance sheets across arbitrary character boundaries.",
+          "Re-ranking: Retrieved top-25 candidates via vector search, then applied FlashRank/BGE Cross-Encoder to surface the top-4 dense context snippets.",
+          "Guardrails & Observability: Traced latency and token consumption using LangSmith, implementing G-Eval rubric checks to reject answers not supported by citations.",
+          "Taxonomy Standardization: Utilized structured Pydantic outputs to enforce predictable JSON formatting for downstream pipelines."
+        ],
+        repo: "https://github.com/topics/rag-system"
+      },
+      project4: {
+        eyebrow: "Recommended Interview Project • Unsupervised & Anomaly ML",
+        title: "High-Throughput Fraud & Anomaly Detection",
+        pitch: "In financial transaction monitoring—similar to my work processing 3M+ bank transactions at Olyv—fraud represents less than 0.2% of traffic. Typical classification metrics like Accuracy are useless. I implemented a dual-stage architecture combining unsupervised Isolation Forests for novel zero-day patterns with an XGBoost classifier tuned directly for Precision-Recall AUC (PR-AUC).",
+        deepdive: [
+          "Evaluation Metric: Discarded ROC-AUC in favor of PR-AUC to prevent massive true-negative majorities from masking poor fraud recall.",
+          "Feature Engineering: Created rolling transaction velocity features (e.g., transactions in last 10 minutes, deviation from typical spending amount).",
+          "Threshold Calibration: Employed cost-matrix threshold tuning to align detection cutoff with financial chargeback tolerance limits.",
+          "Low-Latency API: Engineered inference to execute within <35ms via serialized ONNX runtime models inside FastAPI."
+        ],
+        repo: "https://github.com/topics/fraud-detection"
+      }
+    };
+
+    function openInterviewModal(projectId) {
+      const modal = document.getElementById("interview-modal");
+      const data = interviewData[projectId];
+      if (!data || !modal) return;
+
+      document.getElementById("modal-eyebrow").innerText = data.eyebrow;
+      document.getElementById("modal-title").innerText = data.title;
+      document.getElementById("modal-pitch").innerText = data.pitch;
+      
+      const deepdiveList = document.getElementById("modal-deepdive");
+      deepdiveList.innerHTML = "";
+      data.deepdive.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        deepdiveList.appendChild(li);
+      });
+
+      const repoLink = document.getElementById("modal-repo-link");
+      repoLink.href = data.repo;
+
+      modal.classList.remove("hidden");
+    }
+
+    function closeInterviewModal() {
+      const modal = document.getElementById("interview-modal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    // Close modal on escape key or clicking backdrop
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeInterviewModal();
+    });
+    const modalBackdrop = document.getElementById("interview-modal");
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) closeInterviewModal();
+      });
+    }
+  </script>
+</body>
+</html>
